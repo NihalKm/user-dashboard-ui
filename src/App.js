@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import HomePage from "./Pages/HomePage.jsx";
+import LandingPage from "./Pages/LandingPage";
 
-function App() {
+export default function App() {
+  const [userData,setUserData] = useState();
+  const [usersData,setUsersData] = useState([]);
+
+  //to fetch the users data
+  const getUsersData = () => {
+      fetch("https://panorbit.in/api/users.json").then((response) => response.json()).then((data) => 
+      setUsersData(data.users)
+      );
+  }
+
+  //to get users data on render
+  useEffect(()=>{
+      getUsersData();
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Routes>
+      <Route path="/" element={<LandingPage usersData={usersData} setUsersData={setUsersData} setUserData={setUserData} />} />
+      <Route path="/home" element={<HomePage usersData={usersData} userData={userData} setUserData={setUserData} />} />
+    </Routes>
+    </>
   );
 }
 
-export default App;

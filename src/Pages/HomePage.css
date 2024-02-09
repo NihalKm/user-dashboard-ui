@@ -1,0 +1,102 @@
+/* To add right shape of the selected menu */
+.active {
+    position: relative;
+}
+.active::before{
+    position: absolute;
+    left: calc(179px);
+    content: "";
+    width: 20px;
+    height: 24px;
+    top: 1px;
+    border-radius: 25px 0px 0px 25px;
+    background-color: white;
+
+}
+
+/* To add right shape of the selected menu */
+.shape {
+    position: absolute;
+    left: calc(190px);
+    top: -7px;
+    content: "";
+    width: 10px;
+    height: 40px;
+    background-color: white;
+    border-right: 2px solid white;
+}
+
+.shape::before{
+    position: absolute;
+    content: "";
+    right: 0px;
+    top: -1px;
+    width: 13px;
+    height: 9px;
+    border-radius: 0 0 25px 0;
+    background-color: #494DC8;
+}
+
+.shape::after{
+    position: absolute;
+    bottom: -1px;
+    right: 0px;
+    content: "";
+    width: 13px;
+    height: 9px;
+    border-radius: 0 25px 0 0;
+    background-color: #494DC8;
+}
+
+/* To add arrow icon to the active menu */
+.arrow {
+    position: relative;
+}
+
+.arrow::before{
+    content: "";
+    display: flex;
+    width: 1.5px;
+    height: 5px;
+    background: #BDC5D4;
+    position: absolute;
+    bottom: 10px;
+    left: 190px;
+    transform: rotate(45deg);
+    border-radius: 0 0 25px 25px;
+}
+
+.arrow::after{
+    content: "";
+    display: flex;
+    width: 1.5px;
+    height: 5px;
+    background: #BDC5D4;
+    position: absolute;
+    bottom: 12px;
+    left: 190px;
+    transform: rotate(135deg);
+    border-radius: 0 0 25px 25px;
+}
+
+/* Styles for chatbox messages */
+.start::before{
+    content: "";
+    transform: rotate(180deg) rotateY(180deg);
+    display: flex;
+    position: absolute;
+    top: -32px;
+    left: -39px;
+    width: 0;
+    height: 0;
+    border-left: 21px solid transparent;
+    border-right: 0px solid transparent;
+    border-bottom: 12px solid #F1F1F1;
+    margin: 2rem;
+}
+
+.start.send::before{
+    transform: rotate(180deg);
+    right: -39px;
+    left: initial;
+}

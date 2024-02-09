@@ -1,0 +1,8 @@
+/* To style some components in Google Maps */
+.gmnoprint div:first-child {
+    border-radius: 15px !important;
+}
+
+.gm-fullscreen-control {
+    display: none;
+}
